@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+	<title>Редактирование расписания</title>
+	  {% load static %}
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
+
+</head>
+<body>
+	<center>
+	<header class="site-header">
+		<h1>Редактирование расписания</h1>
+	</header>
+		<form action="" method="post">
+			{% csrf_token %}
+			{% for i in list_parm %}
+			<table class="table">
+				<tr class="first-string">
+					<td class="first-white"> <div class="icon"></div>{{ i.title }}</td>
+				</tr>
+
+				<tr class="second-string">
+					<td>
+						<input name={{ i.name }} type="text" placeholder={{ i.placeholder }} class="second-string">
+					</td>
+				</tr>
+			</table>
+			{% endfor %}
+			<button type="submit" class="button">Отправить заявку</button>
+	</center>
+</body>
